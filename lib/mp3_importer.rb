@@ -2,20 +2,20 @@ require 'pry'
 class MP3Importer
 
   attr_accessor :path
-    def initialize(path)
-      @path = path
 
-    end
+  def initialize(path)
+    @path = path
 
-    def files
-     @files = Dir.glob("#{path}/*.mp3").collect { |files| files.sub("#{path}/", "") }
-   end
+  end
 
-    def import
-      files.each { |filename| Song.new_by_filename(filename) }
-      
-    end
+  def files
+    binding.pry
+ @files = Dir.glob("#{path}/*.mp3").collect { |files| files.sub("#{path}/", "") }
+  end
 
+  def import
+    files.each { |filename| Song.new_by_filename(filename) }
 
+  end
 
 end
